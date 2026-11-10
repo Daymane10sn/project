@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Навигатор первокурсника</title>
+<link rel="icon" href="logo-mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap&subset=cyrillic">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ===== ШАПКА (на телефоне: логотип + значок поиска, меню — в нижней панели) ===== -->
+<header class="header"><div class="wrap">
+  <a class="logo" href="#/" aria-label="Навигатор первокурсника">
+    <img class="logo-mark" src="logo-mark.png" alt=""><span><b>НАВИГАТОР</b><small>ПЕРВОКУРСНИКА</small></span>
+  </a>
+  <nav class="nav" aria-label="Основная навигация">
+      <a href="#/" data-nav="home">Главная</a>
+      <a href="#/reference" data-nav="reference">Справочник</a>
+      <a href="#/events" data-nav="events">Мероприятия</a>
+      <a href="#/market" data-nav="market">Барахолка</a>
+      <a href="#/forum" data-nav="forum">Форум</a>
+      <a href="#/agent" data-nav="agent">ИИ-агент</a>
+  </nav>
+  <a class="login" href="#/login" data-login data-account>Войти / Регистрация</a>
+  <a class="search-ico" href="#/reference" aria-label="Поиск">⌕</a>
+</div></header>
+
+<!-- ===== ГЛАВНАЯ ===== -->
+<main class="wrap" id="page-home" data-page="home" hidden>
+  <div class="crumbs">ГЛАВНАЯ  /  ТВОЙ СТУДЕНЧЕСКИЙ СТАРТ</div>
+  <section class="hero"><i></i><i></i><i></i>
+    <div>
+      <h1>Твой университет.<span>Теперь понятнее.</span></h1>
+      <p>Всё, что нужно первокурснику — в одном месте.</p>
+      <form class="search" role="search" id="home-search">
+        <input name="q" placeholder="Что хочешь найти? Например, расписание…" aria-label="Поиск">
+        <button type="submit" aria-label="Искать">⌕</button>
+      </form>
+      <div class="chips">
+      <a class="chip" href="#/reference?tag=Учёба">Учёба</a>
+      <a class="chip" href="#/reference?tag=Инфраструктура">Корпуса</a>
+      <a class="chip" href="#/events">Мероприятия</a>
+      </div>
+    </div>
+    <div class="hero-side"><b>01</b><h2>Найди ответ<br>в пару кликов.</h2><small>Справочник · агент · события</small></div>
+  </section>
+  <section class="sec">
+    <div class="sec-head"><h2>Быстрый доступ</h2><a href="#/reference">Все разделы ↗</a></div>
+    <div class="grid4">
+      <a class="card quick" href="#/reference" style="--tone:var(--green);--tbg:var(--mint)"><span class="ico">▤</span><span><h3>Справочник</h3><p>Ответы на вопросы об учёбе</p></span><span class="arrow">↗</span></a>
+      <a class="card quick" href="#/agent" style="--tone:var(--purple);--tbg:var(--purple-bg)"><span class="ico">✳</span><span><h3>ИИ-агент</h3><p>Спроси — подскажем</p></span><span class="arrow">↗</span></a>
+      <a class="card quick" href="#/market" style="--tone:var(--clay);--tbg:var(--clay-bg)"><span class="ico">↗</span><span><h3>Барахолка</h3><p>Найди нужное для учёбы</p></span><span class="arrow">↗</span></a>
+      <a class="card quick" href="#/favorites" style="--tone:var(--blue);--tbg:var(--blue-bg)"><span class="ico">♡</span><span><h3>Избранное</h3><p>Всё важное под рукой</p></span><span class="arrow">↗</span></a>
+    </div>
+  </section>
+  <section class="sec">
+    <div class="sec-head"><h2>Скоро в университете</h2><a href="#/events">Все мероприятия ↗</a></div>
+    <div class="grid3">
+      <a class="card event" href="#/events" style="--tone:var(--green);--tbg:var(--mint)"><span class="date"><b>18</b><small>ОКТ</small></span><span><h3>Знакомство с кампусом</h3><p>Экскурсия по корпусам и библиотеке</p><p class="meta">10:30  ·  Главный корпус</p></span><span class="arrow">↗</span></a>
+      <a class="card event" href="#/events" style="--tone:var(--ev-blue);--tbg:var(--ev-blue-bg)"><span class="date"><b>21</b><small>ОКТ</small></span><span><h3>Клубы и сообщества</h3><p>Найди команду по интересам</p><p class="meta">16:00  ·  Студенческий центр</p></span><span class="arrow">↗</span></a>
+      <a class="card event" href="#/events" style="--tone:var(--clay);--tbg:var(--clay-bg)"><span class="date"><b>24</b><small>ОКТ</small></span><span><h3>Первый open mic</h3><p>Музыка, стендап и свободный микрофон</p><p class="meta">18:00  ·  Актовый зал</p></span><span class="arrow">↗</span></a>
+    </div>
+  </section>
+</main>
+
+<!-- ===== СПРАВОЧНИК (поиск, вкладки и карточки разделов рисует pages.js в #ref-root) ===== -->
+<main class="wrap" id="page-reference" data-page="reference" hidden>
+  <div class="crumbs">СПРАВОЧНИК  /  БАЗА ЗНАНИЙ</div>
+  <div class="pagehead"><h1>Разберёмся вместе.</h1><p>Короткие ответы на вопросы, которые возникают в начале учёбы.</p></div>
+  <div id="ref-root"></div>
+  <div class="cta">
+    <span class="cta-ico">?</span>
+    <span class="cta-text"><b>Не нашёл ответ?</b><span>Задай вопрос ИИ-агенту — он поможет сориентироваться.</span></span>
+    <a class="btn" href="#/agent">Перейти к агенту</a>
+  </div>
+</main>
+
+<!-- ===== МЕРОПРИЯТИЯ ===== -->
+<main class="wrap" id="page-events" data-page="events" hidden>
+  <div class="crumbs">МЕРОПРИЯТИЯ  /  СОБЫТИЯ УНИВЕРСИТЕТА</div>
+  <div class="pagehead"><h1>Скоро в университете.</h1><p>Знакомства, клубы и встречи для первокурсников.</p></div>
+  <div class="grid3">
+      <div class="card event" style="--tone:var(--green);--tbg:var(--mint)"><span class="date"><b>18</b><small>ОКТ</small></span><span><h3>Знакомство с кампусом</h3><p>Экскурсия по корпусам и библиотеке</p><p class="meta">10:30  ·  Главный корпус</p></span></div>
+      <div class="card event" style="--tone:var(--ev-blue);--tbg:var(--ev-blue-bg)"><span class="date"><b>21</b><small>ОКТ</small></span><span><h3>Клубы и сообщества</h3><p>Найди команду по интересам</p><p class="meta">16:00  ·  Студенческий центр</p></span></div>
+      <div class="card event" style="--tone:var(--clay);--tbg:var(--clay-bg)"><span class="date"><b>24</b><small>ОКТ</small></span><span><h3>Первый open mic</h3><p>Музыка, стендап и свободный микрофон</p><p class="meta">18:00  ·  Актовый зал</p></span></div>
+  </div>
+</main>
+
+<!-- ===== ИИ-АГЕНТ (окно чата рисует pages.js в #agent-root) ===== -->
+<main class="wrap" id="page-agent" data-page="agent" hidden>
+  <div class="crumbs">ПОМОЩЬ  /  ИИ-АГЕНТ</div>
+  <div class="pagehead"><h1>Спроси — и двигайся дальше.</h1><p>Помощник первокурсника на основе университетского справочника.</p></div>
+  <div class="chat-grid">
+    <div id="agent-root"></div>
+    <div class="side">
+      <div class="panel"><h2>С чем я помогу</h2>
+      <div class="help"><span class="ck">✓</span><span><b>Учёба</b><em>Зачёты, экзамены, расписание</em></span></div>
+      <div class="help"><span class="ck">✓</span><span><b>Документы</b><em>Справки и заявления</em></span></div>
+      <div class="help"><span class="ck">✓</span><span><b>Навигация</b><em>Корпуса и аудитории</em></span></div>
+      <div class="help"><span class="ck">✓</span><span><b>Студенческая жизнь</b><em>Клубы и мероприятия</em></span></div>
+      </div>
+      <div class="panel mint"><h3>Не нашёл ответ?</h3>
+        <p>Попробуй поиск по справочнику или уточни вопрос — так я смогу помочь точнее.</p>
+        <a class="btn" href="#/reference">Открыть справочник</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ===== БАРАХОЛКА (форма, фильтры и объявления рисует pages.js в #market-root) ===== -->
+<main class="wrap" id="page-market" data-page="market" hidden>
+  <div class="crumbs">СТУДЕНЧЕСКАЯ БАРАХОЛКА  /  ДАЙ ВЕЩАМ ВТОРУЮ ЖИЗНЬ</div>
+  <div class="head-row">
+    <div class="pagehead"><h1 id="market-title">Найди нужное рядом.</h1><p>Учебники, техника и вещи для студенческой жизни — от студентов для студентов.</p></div>
+    <button class="btn" id="ad-btn" type="button">＋ Разместить объявление</button>
+  </div>
+  <div id="market-root"></div>
+  <p class="hint">Публикация объявлений доступна после входа в аккаунт.</p>
+</main>
+
+<!-- ===== ИЗБРАННОЕ ===== -->
+<main class="wrap" id="page-favorites" data-page="favorites" hidden>
+  <div class="crumbs">ИЗБРАННОЕ  /  СОХРАНЁННОЕ</div>
+  <div class="pagehead"><h1>Всё важное — под рукой.</h1><p>Здесь собраны объявления, которые ты отметил сердечком.</p></div>
+  <div id="fav-root"></div>
+</main>
+
+<!-- ===== ПРОФИЛЬ (форма входа / «ты вошёл как…» рисует pages.js в #profile-root) ===== -->
+<main class="wrap" id="page-profile" data-page="profile" hidden>
+  <div class="crumbs">ЛИЧНЫЙ КАБИНЕТ  /  ПРОСТРАНСТВО СТУДЕНТА</div>
+  <div class="pagehead"><h1>Всё важное — под рукой.</h1><p>Войди, чтобы сохранять мероприятия и управлять своими объявлениями.</p></div>
+  <div class="login-grid">
+    <div class="login-panel"><i></i><i></i>
+      <div class="kicker">Твой студенческий профиль</div>
+      <h2>Продолжай с того места,<span>где остановился.</span></h2>
+      <p>Сохраняй полезное, следи за событиями и публикуй объявления для других студентов.</p>
+      <div id="profile-root"></div>
+      <p class="terms">Продолжая, ты принимаешь условия использования сервиса.</p>
+    </div>
+    <div>
+      <h2 class="side-h">Возможности аккаунта</h2>
+      <a class="card feat" href="#/favorites" style="--tone:var(--green);--tbg:var(--mint)"><span class="ico">♡</span><span><h3>Избранное</h3><p>Сохраняй полезные статьи и события</p></span><span class="arr">↗</span></a>
+      <a class="card feat" href="#/market?mine=1" style="--tone:var(--clay);--tbg:var(--clay-bg)"><span class="ico">↗</span><span><h3>Мои объявления</h3><p>Публикуй и обновляй свои предложения</p></span><span class="arr">↗</span></a>
+      <a class="card feat" href="#/agent" style="--tone:var(--purple);--tbg:var(--purple-bg)"><span class="ico">◷</span><span><h3>История вопросов</h3><p>Возвращайся к диалогам с агентом</p></span><span class="arr">↗</span></a>
+      <div class="panel mint" id="guest-panel"><h3>Ты пока гость?</h3><p style="margin:0">Справочник, мероприятия и ИИ-агент доступны даже без регистрации.</p></div>
+    </div>
+  </div>
+</main>
+
+<!-- ===== ФОРУМ (список тем #forum-root; чтение и комментарии открыты всем, создавать темы и комментировать — только после входа) ===== -->
+<main class="wrap" id="page-forum" data-page="forum" hidden>
+  <div class="crumbs">ФОРУМ  /  ОБСУЖДЕНИЯ И СТАТЬИ</div>
+  <div class="pagehead"><h1>Обсуждаем вместе.</h1><p>Задавай вопросы и делись опытом. Создавать темы и писать статьи могут только авторизованные пользователи.</p></div>
+  <div id="forum-root"></div>
+</main>
+<main class="wrap" id="page-forum-new" data-page="forum-new" hidden>
+  <div class="crumbs">ФОРУМ  /  НОВАЯ ТЕМА</div>
+  <div class="pagehead"><h1>Новая тема.</h1><p>Опиши вопрос или напиши статью для других студентов.</p></div>
+  <div id="new-root"></div>
+</main>
+<main class="wrap" id="page-topic" data-page="topic" hidden>
+  <div class="crumbs">ФОРУМ  /  ТЕМА</div>
+  <div id="topic-root"></div>
+</main>
+
+<!-- ===== ВХОД И РЕГИСТРАЦИЯ (отдельные страницы) ===== -->
+<main class="auth" id="page-login" data-page="login" hidden>
+  <section class="auth-main"><img class="auth-logo" src="logo-mark.png" alt=""><div id="login-root"></div></section>
+</main>
+<main class="auth" id="page-register" data-page="register" hidden>
+  <section class="auth-main"><img class="auth-logo" src="logo-mark.png" alt=""><div id="register-root"></div></section>
+</main>
+
+
+<!-- ===== 404 ===== -->
+<main class="wrap stub" id="page-404" data-page="404" hidden>
+  <h1>Страница не найдена</h1><p>Такой страницы нет.</p><a href="#/">На главную</a>
+</main>
+
+<footer class="wrap"><div class="footer"><b>НАВИГАТОР ПЕРВОКУРСНИКА</b><span>Твой первый курс — уверенный старт.</span></div></footer>
+
+<!-- ===== НИЖНЯЯ ПАНЕЛЬ (видна только на экранах ≤ 860px) ===== -->
+<nav class="tabbar" aria-label="Нижняя навигация">
+  <a href="#/" data-nav="home"><i>⌂</i>Главная</a>
+  <a href="#/reference" data-nav="reference"><i>▤</i>Справочник</a>
+  <a href="#/agent" data-nav="agent"><i>●</i>Агент</a>
+  <a href="#/forum" data-nav="forum"><i>✎</i>Форум</a>
+  <a href="#/market" data-nav="market"><i>▣</i>Барахолка</a>
+  <a href="#/profile" data-nav="profile" data-account><i>○</i>Профиль</a>
+</nav>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
+<script src="data.js"></script>
+<script src="components.js"></script>
+<script src="api.js"></script>
+<script src="pages.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

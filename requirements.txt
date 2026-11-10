@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+sqlalchemy>=2.0
+bcrypt
+pyjwt
+pydantic[email]
+psycopg[binary]
